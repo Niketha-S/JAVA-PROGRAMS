@@ -1,0 +1,63 @@
+import java.util.Scanner;
+public class mol {
+   public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String eq = sc.next();
+        String s[] = eq.split("->");
+        String react[];
+        react = s[0].split("[+]");
+        String prod[];
+        prod=s[1].split("[+]");
+System.out.println(react[0]+" "+react[1]);
+      String r= "Reactants are ";
+for(int i=0;i<=react.length-1;i++){
+            String str = react[i];
+char[] a = str.toCharArray();
+            String count="";
+inner:{
+for(int j=0;j<=a.length-1;j++){
+if(Character.isDigit(a[j])==true){
+                    count +=a[j];
+if(Character.isDigit(a[j+1])==false){
+                        String chem = str.substring(j+1,str.length());
+                        r+= count+" moles of "+chem+",";
+                        count="";
+                        break inner;
+                    }
+                }
+else{
+                    r+="1 mole of "+str+", ";
+                    count="";
+                    break inner;
+                }
+            }
+             }
+              }
+System.out.println(r.substring(0, r.length()-2)+".");
+        String p= "Products are ";
+for(int i=0;i<=prod.length-1;i++){
+            String str = prod[i];
+char[] a = str.toCharArray();
+            String count="";
+inner:{
+for(int j=0;j<=a.length-1;j++){
+if(Character.isDigit(a[j])==true){
+                    count +=a[j];
+if(Character.isDigit(a[j+1])==false){
+                        String chem = str.substring(j+1,str.length());
+                        p+= count+" moles of "+chem+",";
+                        count="";
+                        break inner;
+                    }
+                }
+else{
+                    p+="1 mole of "+str+", ";
+                    count="";
+                    break inner;
+                }
+                }            
+            }
+        }
+System.out.println(p.substring(0, p.length()-1)+".");
+        }
+}
